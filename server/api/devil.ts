@@ -24,10 +24,13 @@ export default defineEventHandler(async (event) => {
 
   async function get_ip() {
     try {
-      const response = await fetch("https://apim.canadiantire.ca/v1/store/store/601?lang=en_CA", {
-        method: "GET",
-        headers: config.headers,
-      });
+      const response = await fetch(
+        `https://apim.canadiantire.ca/v1/store/store/${Math.floor(Math.random() * 100)}?lang=en_CA`,
+        {
+          method: "GET",
+          headers: config.headers,
+        }
+      );
       const data = await response.json();
       console.log(data);
       return data;
